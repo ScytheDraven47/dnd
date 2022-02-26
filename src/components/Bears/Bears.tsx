@@ -5,10 +5,13 @@ import {
   ButtonGroup,
   Provider,
   defaultTheme,
+  Image,
+  Flex,
 } from '@adobe/react-spectrum'
 import AddIcon from '@spectrum-icons/workflow/AddCircle'
 import CancelIcon from '@spectrum-icons/workflow/Cancel'
 import create from 'zustand'
+import BearSVG from './bear-face.svg'
 
 const useStore = create((set: any) => ({
   bears: 0,
@@ -40,6 +43,11 @@ const Bears = (props: Props) => {
         {bearCount === 1 ? `is ${bearCount} bear` : `are ${bearCount} bears`}{' '}
         around here...
       </Content>
+      <Flex wrap width={'80%'}>
+        {Array.from({ length: bearCount }, (_, i) => (
+          <Image key={`bear_${i}`} src={BearSVG} width={100} alt='a bear' />
+        ))}
+      </Flex>
     </Provider>
   )
 }
