@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@adobe/react-spectrum": "^3.16.3",
+    "@spectrum-icons/workflow": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-query": "^3.34.16",
