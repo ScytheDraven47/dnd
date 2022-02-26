@@ -14,3 +14,12 @@ test('adds a bear', () => {
   fireEvent.click(button)
   expect(screen.getByText(/[0-9] bears/i)).toHaveTextContent('1 bear')
 })
+
+test('reset bears', () => {
+  render(<App />)
+  const button = screen.getByText(/add a bear/i)
+  fireEvent.click(button)
+  fireEvent.click(button)
+  fireEvent.click(button)
+  expect(screen.getByText(/[0-9] bears/i)).toHaveTextContent('0 bear')
+})
