@@ -5,21 +5,21 @@ on: [push]
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [14]
+        node_version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node_version: ${{ matrix.node_version }}
-
+          cache: 'npm'
       - name: run CI
         run: |
-          npm install # or yarn install
-          npm run lint # or yarn lint
-          npm run test # or yarn test
-          npm run build # or yarn build
+          npm install
+          npm run test
+          npm run build
