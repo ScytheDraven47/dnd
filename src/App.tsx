@@ -1,48 +1,17 @@
-import logo from './logo.svg'
 import './App.css'
-import create from 'zustand'
-import { Button, defaultTheme, Provider } from '@adobe/react-spectrum'
+import { defaultTheme, Provider } from '@adobe/react-spectrum'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import Bears from './components/Bears'
 
 const queryClient = new QueryClient()
-const useStore = create((set: any) => ({
-  bears: 0,
-  increasePopulation: () => set((state: any) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-}))
 
 function App() {
-  const bearCount = useStore((state) => state.bears)
-  const increasePop = useStore((state) => state.increasePopulation)
-  const resetPop = useStore((state) => state.removeAllBears)
-
   return (
     <QueryClientProvider client={queryClient}>
       <Provider theme={defaultTheme}>
         <div className='App'>
-          <header className='App-header'>
-            <img src={logo} className='App-logo' alt='logo' />
-            <Button variant='cta' onPress={increasePop}>
-              Add a bear
-            </Button>
-            <Button variant='cta' onPress={resetPop}>
-              Reset bears
-            </Button>
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-              <br />
-              There are {bearCount} bears around here...
-            </p>
-            <a
-              className='App-link'
-              href='https://reactjs.org'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Learn React
-            </a>
-          </header>
+          <Bears />
         </div>
         <ReactQueryDevtools />
       </Provider>
