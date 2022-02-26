@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import Bears from '../components/Bears'
+import Bears from './Bears'
 
 test('add bear', () => {
   render(<Bears />)

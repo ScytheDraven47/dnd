@@ -2,7 +2,7 @@ import './App.css'
 import { defaultTheme, Provider } from '@adobe/react-spectrum'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import Bears from './components/Bears'
+import Bears from './components/Bears/Bears'
 
 const queryClient = new QueryClient()
 
