@@ -15,6 +15,7 @@ const useStore = create((set: any) => ({
 function App() {
   const bearCount = useStore((state) => state.bears)
   const increasePop = useStore((state) => state.increasePopulation)
+  const resetPop = useStore((state) => state.removeAllBears)
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -23,7 +24,10 @@ function App() {
           <header className='App-header'>
             <img src={logo} className='App-logo' alt='logo' />
             <Button variant='cta' onPress={increasePop}>
-              Hello from Spectrum
+              Add a bear
+            </Button>
+            <Button variant='cta' onPress={resetPop}>
+              Reset bears
             </Button>
             <p>
               Edit <code>src/App.js</code> and save to reload.
