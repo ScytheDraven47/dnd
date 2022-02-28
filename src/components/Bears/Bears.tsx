@@ -10,14 +10,8 @@ import {
 } from '@adobe/react-spectrum'
 import AddIcon from '@spectrum-icons/workflow/AddCircle'
 import CancelIcon from '@spectrum-icons/workflow/Cancel'
-import create from 'zustand'
+import useStore from '../../store'
 import BearSVG from './bear-face.svg'
-
-const useStore = create((set: any) => ({
-  bears: 0,
-  increasePopulation: () => set((state: any) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-}))
 
 type Props = {}
 
@@ -43,7 +37,7 @@ const Bears = (props: Props) => {
         {bearCount === 1 ? `is ${bearCount} bear` : `are ${bearCount} bears`}{' '}
         around here...
       </Content>
-      <Flex wrap width={'80%'}>
+      <Flex wrap width='80%' justifyContent='center'>
         {Array.from({ length: bearCount }, (_, i) => (
           <Image key={`bear_${i}`} src={BearSVG} width={100} alt='a bear' />
         ))}
