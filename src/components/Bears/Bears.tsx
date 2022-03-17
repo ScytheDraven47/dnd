@@ -12,8 +12,6 @@ import AddIcon from '@spectrum-icons/workflow/AddCircle'
 import CancelIcon from '@spectrum-icons/workflow/Cancel'
 import useStore from '../../store'
 import BearSVG from './bear-face.svg'
-import { Link as RouterLink } from 'react-router-dom'
-import { Link } from '@adobe/react-spectrum'
 
 type Props = {}
 
@@ -24,9 +22,6 @@ const Bears = (props: Props) => {
 
   return (
     <Provider theme={defaultTheme}>
-      <Link isQuiet>
-        <RouterLink to='/'>Home</RouterLink>
-      </Link>
       <ButtonGroup>
         <Button variant={'primary'} onPress={increasePop}>
           <AddIcon />
