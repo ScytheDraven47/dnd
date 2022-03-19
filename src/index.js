@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import Bears from './components/Bears/Bears'
+import RedditFeed from './components/RedditFeed/RedditFeed'
 import reportWebVitals from './reportWebVitals'
 
 const queryClient = new QueryClient()
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />}>
             <Route path='bears' element={<Bears />} />
+            <Route path='reddit' element={<RedditFeed />} />
           </Route>
         </Routes>
       </BrowserRouter>
