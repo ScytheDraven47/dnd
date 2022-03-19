@@ -1,0 +1,23 @@
+@base_url = https://www.reddit.com
+@base_api_url = {{base_url}}/api/v1
+@subreddit = /r/programmerhumor
+@suffix = /hot
+@auth = Basic {{dotenv API_REDDIT_CLIENT_ID}} {{dotenv API_REDDIT_CLIENT_SECRET}}
+@token = -zC52YWFM99HnuGUpXw46TUDJP-qwnQ
+
+###
+
+# Get Subreddit
+GET {{base_url}}{{subreddit}}{{suffix}}.json
+
+###
+
+# Generate Token
+POST {{base_api_url}}/access_token
+Authorization: {{auth}}
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=client_credentials
+
+###
