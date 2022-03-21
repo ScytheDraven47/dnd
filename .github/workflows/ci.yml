@@ -20,6 +20,7 @@ jobs:
           cache: 'npm'
       - name: run CI
         run: |
+          cd client 
           npm install
           npm run test
           npm run build
